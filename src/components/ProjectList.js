@@ -6,7 +6,17 @@ function ProjectList({ projects }) {
   return (
     <div id="projects">
       <h2>My Projects</h2>
-      <div id="project-list">{/* render ProjectItem components here */}</div>
+      <div id="project-list">{
+      function Technologies() {
+        const tech =[
+          "Proggramming"
+        ];
+
+        return (
+          <span>Programming</span>
+        )
+      }
+      }</div>
     </div>
   );
 }
