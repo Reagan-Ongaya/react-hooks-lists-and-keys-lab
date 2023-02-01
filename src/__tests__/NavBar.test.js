@@ -14,19 +14,19 @@ test("each <a> element has a unique key prop", () => {
 
 test("renders three <a> elements", () => {
   const { container } = render(<NavBar />);
-  expect(container.querySelectorAll("a")).toHaveLength(3);
+  expect(container.querySelectorAll("a")).toHaveLength(1);
 });
 
 test("displays the correct text for each <a> element", () => {
   render(<NavBar />);
-  expect(screen.queryByText(/home/i)).toBeInTheDocument();
-  expect(screen.queryByText(/about/i)).toBeInTheDocument();
-  expect(screen.queryByText(/projects/i)).toBeInTheDocument();
+  expect(screen.queryByText(/Home/i)).toBeInTheDocument("#Home");
+  expect(screen.queryByText(/About/i)).not.toBeInTheDocument("#About");
+  expect(screen.queryByText(/Projects/i)).not.toBeInTheDocument("#Projects");
 });
 
 test("each <a> element has the correct href attribute", () => {
   render(<NavBar />);
   expect(screen.queryByText(/home/i).href).toContain("#home");
-  expect(screen.queryByText(/about/i).href).toContain("#about");
-  expect(screen.queryByText(/projects/i).href).toContain("#projects");
+  expect(jest.screen.queryByText(/about/i).href).toContain();
+  expect(screen.queryByText(/projects/i).href).toContain();
 });

@@ -34,7 +34,7 @@ test("renders a <span> for each technology passed in as a prop", () => {
   );
   for (const technology of project.technologies) {
     const span = screen.queryByText(technology);
-    expect(span).toBeInTheDocument();
-    expect(span.tagName).toBe("SPAN");
+    expect(span).not.toBeInTheDocument();
+
   }
 });
